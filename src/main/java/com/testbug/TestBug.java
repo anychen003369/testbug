@@ -49,7 +49,7 @@ public class TestBug {
                 result += line;
             }
         } catch (Exception e) {
-            System.out.println("å‘é€GETè¯·æ±‚å‡ºç°å¼‚å¸¸ï¼" + e);
+            System.out.println("·¢ËÍGETÇëÇó³öÏÖÒì³££¡" + e);
             e.printStackTrace();
         } finally {
             try {
@@ -84,7 +84,7 @@ public class TestBug {
                 result += line;
             }
         } catch (Exception e) {
-            System.out.println("å‘é€ POST è¯·æ±‚å‡ºç°å¼‚å¸¸ï¼" + e);
+            System.out.println("·¢ËÍ POST ÇëÇó³öÏÖÒì³££¡" + e);
             e.printStackTrace();
         } finally {
             try {
@@ -106,8 +106,8 @@ public class TestBug {
         try {
             url = new URL(path);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-            httpURLConnection.setRequestMethod("POST");// æäº¤æ¨¡å¼
-            // å‘é€POSTè¯·æ±‚å¿…é¡»è®¾ç½®å¦‚ä¸‹ä¸¤è¡Œ
+            httpURLConnection.setRequestMethod("POST");// Ìá½»Ä£Ê½
+            // ·¢ËÍPOSTÇëÇó±ØĞëÉèÖÃÈçÏÂÁ½ĞĞ
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setDoInput(true);
 //            BASE64Encoder enc = new sun.misc.BASE64Encoder();
@@ -122,7 +122,7 @@ public class TestBug {
 
             writer.flush();
             writer.close();
-            //å¼€å§‹è·å–æ•°æ®
+            //¿ªÊ¼»ñÈ¡Êı¾İ
             BufferedInputStream bis = new BufferedInputStream(httpURLConnection.getInputStream());
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
             int len;
@@ -143,7 +143,7 @@ public class TestBug {
     public static void httpUrlConnectionPost(String path, String post) {
         {
             try {
-                //åˆ›å»ºURLå¯¹è±¡
+                //´´½¨URL¶ÔÏó
                 URL url = new URL(path);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setConnectTimeout(5000);
@@ -162,8 +162,8 @@ public class TestBug {
                 OutputStream outputStream = httpURLConnection.getOutputStream();
                 outputStream.write(post.getBytes(), 0, post.getBytes().length);
                 outputStream.close();
-                //è¯»å–è¿”å›çš„æ•°æ®
-                //è¿”å›æ‰“å¼€è¿æ¥è¯»å–çš„è¾“å…¥æµï¼Œè¾“å…¥æµè½¬åŒ–ä¸ºStringBufferç±»å‹ï¼Œè¿™ä¸€å¥—æµç¨‹è¦è®°ä½ï¼Œå¸¸ç”¨
+                //¶ÁÈ¡·µ»ØµÄÊı¾İ
+                //·µ»Ø´ò¿ªÁ¬½Ó¶ÁÈ¡µÄÊäÈëÁ÷£¬ÊäÈëÁ÷×ª»¯ÎªStringBufferÀàĞÍ£¬ÕâÒ»Ì×Á÷³ÌÒª¼Ç×¡£¬³£ÓÃ
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
                 String line = null;
                 StringBuffer stringBuffer = new StringBuffer();
